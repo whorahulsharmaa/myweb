@@ -1,0 +1,180 @@
+/* About Me Page - Glassmorphism & Neumorphism Styles */
+.aboutme-hero {
+  background: linear-gradient(120deg, #232526 0%, #0f2027 100%);
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.aboutme-bg-shapes {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+.aboutme-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  filter: blur(2px);
+  animation-timing-function: ease-in-out;
+}
+.shape1 { width: 180px; height: 180px; background: #00fff0; left: 8%; top: 18%; animation: aboutfloat1 22s infinite alternate; }
+.shape2 { width: 120px; height: 120px; background: #ff00cc; left: 70%; top: 10%; animation: aboutfloat2 28s infinite alternate-reverse; }
+.shape3 { width: 200px; height: 200px; background: #f9f586; left: 30%; top: 60%; animation: aboutfloat3 25s infinite alternate; }
+.shape4 { width: 140px; height: 140px; background: #00ffb8; left: 80%; top: 50%; animation: aboutfloat4 30s infinite alternate-reverse; }
+.shape5 { width: 160px; height: 160px; background: #00bfff; left: 50%; top: 30%; animation: aboutfloat5 27s infinite alternate; }
+
+@keyframes aboutfloat1 {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-40px) translateX(30px) scale(1.08); }
+  100% { transform: translateY(-80px) translateX(60px) scale(1); }
+}
+@keyframes aboutfloat2 {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(50px) translateX(-20px) scale(0.95); }
+  100% { transform: translateY(100px) translateX(-40px) scale(1); }
+}
+@keyframes aboutfloat3 {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-60px) translateX(40px) scale(1.12); }
+  100% { transform: translateY(-120px) translateX(80px) scale(1); }
+}
+@keyframes aboutfloat4 {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(70px) translateX(-30px) scale(0.92); }
+  100% { transform: translateY(140px) translateX(-60px) scale(1); }
+}
+@keyframes aboutfloat5 {
+  0% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-30px) translateX(20px) scale(1.05); }
+  100% { transform: translateY(-60px) translateX(40px) scale(1); }
+}
+
+.aboutme-glass-container {
+  background: rgba(255,255,255,0.13);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-radius: 24px;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  z-index: 2;
+}
+.aboutme-profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 4px #00fff0, 0 4px 32px 0 rgba(0,255,240,0.12);
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+  will-change: transform, box-shadow;
+  display: inline-block;
+}
+.aboutme-profile-pic:hover {
+  transform: rotate(-6deg) scale(1.08);
+  box-shadow: 0 0 0 8px #00fff0, 0 8px 48px 0 rgba(0,255,240,0.18);
+}
+.aboutme-img-glow {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+.aboutme-title {
+  color: #ff3b3b;
+  font-weight: 900;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  text-shadow: 0 2px 12px #ff3b3b22;
+}
+.aboutme-designation {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+.aboutme-desc {
+  color: #222;
+  font-size: 1.18rem;
+  font-weight: 400;
+  opacity: 0.92;
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+.aboutme-profile-img-wrapper {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 0 0 8px #ff3b3b55, 0 8px 48px 0 #ff3b3b22;
+  background: rgba(255,255,255,0.38);
+  border: 1.5px solid #fff6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutme-profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2.5px solid #fff8;
+  filter: drop-shadow(0 0 16px #ff3b3b44);
+}
+.aboutme-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.aboutme-badge {
+  background: #fff;
+  color: #ff3b3b;
+  border-radius: 2rem;
+  padding: 0.5em 1.5em;
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 8px #ff3b3b11;
+  border: 1.5px solid #ff3b3b33;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.aboutme-badge:hover {
+  background: #ff3b3b;
+  color: #fff;
+  box-shadow: 0 4px 16px #ff3b3b33;
+}
+.aboutme-contact-btn {
+  display: inline-block;
+  padding: 0.8em 2.5em;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #ff3b3b;
+  border: 2.5px solid #ff3b3b;
+  border-radius: 36px;
+  background: #fff;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 0 0 #ff3b3b00;
+  margin-top: 0.5em;
+}
+.aboutme-contact-btn:hover, .aboutme-contact-btn:focus {
+  background: linear-gradient(90deg, #ff3b3b 60%, #ff7b7b 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px #ff3b3b44, 0 0 16px #ff3b3b33;
+  transform: scale(1.07) translateY(-2px);
+  border-color: #ff3b3b;
+}
+@media (max-width: 768px) {
+  .aboutme-glass-container { padding: 1.2rem !important; border-radius: 1.2rem; }
+  .aboutme-title { font-size: 1.2rem; }
+  .aboutme-desc { font-size: 0.98rem; }
+  .aboutme-profile-img-wrapper { width: 110px; height: 110px; }
+}

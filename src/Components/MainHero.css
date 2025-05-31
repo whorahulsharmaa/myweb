@@ -1,0 +1,268 @@
+/* Main Hero Section - Modern Split Layout */
+.main-hero-section {
+  background: linear-gradient(120deg, #fff 0%, #ffeaea 100%);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  animation: heroBgFadeIn 1.2s cubic-bezier(.4,2,.6,1);
+}
+@keyframes heroBgFadeIn {
+  from { opacity: 0; filter: blur(8px); }
+  to { opacity: 1; filter: blur(0); }
+}
+.main-hero-subheading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ff3b3b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  background: linear-gradient(90deg, #ff3b3b 60%, #ff7b7b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.main-hero-heading {
+  font-size: 4.2rem;
+  font-weight: 900;
+  color: #232526;
+  margin-bottom: 0.3em;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+.main-hero-name {
+  color: #ff3b3b;
+  font-weight: 900;
+  /* text-shadow: 0 2px 24px #ff3b3b33, 0 0 8px #fff; */
+  font-size: 4.4rem;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ff3b3b 60%, #d55959 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.main-hero-desc {
+  color: #5a5a5a;
+  font-size: 1.18rem;
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-left: auto;    
+  margin-right: auto;
+  letter-spacing: 0.2px;
+  /* background: transparent; */
+  border-radius: 12px;
+  padding: 0.7em 1.2em;
+  /* box-shadow: 0 2px 12px #ff3b3b11; */
+}
+.main-hero-btn {
+  display: inline-block;
+  padding: 0.8em 2.5em;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #ff3b3b;
+  border: 2.5px solid #ff3b3b;
+  border-radius: 36px;
+  background: #fff;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 0 0 #ff3b3b00;
+  margin-top: 0.5em;
+}
+.main-hero-btn:hover, .main-hero-btn:focus {
+  background: linear-gradient(90deg, #ff3b3b 60%, #ff7b7b 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px #ff3b3b44, 0 0 16px #ff3b3b33;
+  transform: scale(1.07) translateY(-2px);
+  border-color: #ff3b3b;
+}
+.main-hero-img-wrapper {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 8px #ff3b3b55, 0 8px 48px 0 #ff3b3b22;
+  background: rgba(255,255,255,0.38);
+  backdrop-filter: blur(8px) saturate(1.2);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+  border: 1.5px solid #fff6;
+  animation: heroImgPopIn 1.1s cubic-bezier(.4,2,.6,1);
+}
+@keyframes heroImgPopIn {
+  from { opacity: 0; transform: scale(0.85) translateY(40px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.main-hero-img-wrapper:hover {
+  transform: rotate(-6deg) scale(1.08);
+  box-shadow: 0 0 0 16px #ff3b3b88, 0 12px 64px 0 #ff3b3b33;
+  background: rgba(255,255,255,0.48);
+}
+.main-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 0 32px #ff3b3b33, 0 2px 16px #fff8;
+  border: 2.5px solid #fff8;
+  filter: drop-shadow(0 0 16px #ff3b3b44);
+}
+.main-hero-img-bg {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+.main-hero-dashed-svg {
+  position: absolute;
+  left: 0; top: 0;
+  width: 500px; height: 500px;
+  z-index: 1;
+  filter: drop-shadow(0 0 24px #ff3b3b33);
+}
+.main-hero-float {
+  position: absolute;
+  opacity: 0.19;
+  z-index: 2;
+  pointer-events: none;
+  filter: blur(0.5px) drop-shadow(0 2px 12px #ff3b3b44);
+  transition: opacity 0.3s, filter 0.3s, transform 0.3s;
+  animation-timing-function: ease-in-out;
+}
+.main-hero-float:hover, .main-hero-float:active {
+  opacity: 0.32;
+  filter: blur(0px) drop-shadow(0 6px 24px #ff3b3b88);
+  transform: scale(1.08) rotate(-3deg);
+}
+.main-hero-dot {
+  width: 36px; height: 36px; background: linear-gradient(135deg, #ff3b3b 60%, #ff7b7b 100%); border-radius: 50%; left: 18px; top: 30px; animation: heroFloatDot 7s infinite alternate;
+  box-shadow: 0 0 24px #ff3b3b77, 0 2px 12px #ff3b3b22;
+  border: 2px solid #fff5;
+}
+.main-hero-triangle {
+  width: 0; height: 0; border-left: 28px solid transparent; border-right: 28px solid transparent; border-bottom: 48px solid #ff3b3b; left: 200px; top: 40px; animation: heroFloatTriangle 9s infinite alternate-reverse;
+  filter: drop-shadow(0 8px 32px #ff3b3b44);
+  opacity: 0.16;
+}
+.main-hero-circle {
+  width: 58px; height: 58px; background: linear-gradient(135deg, #ff3b3b 60%, #ff7b7b 100%); border-radius: 50%; left: 180px; top: 180px; animation: heroFloatCircle 11s infinite alternate;
+  box-shadow: 0 0 32px #ff3b3b33, 0 2px 12px #ff3b3b22;
+  border: 2px solid #fff5;
+}
+.main-hero-icon {
+  left: 60px; top: 180px; font-size: 2.8rem; color: #ff3b3b; animation: heroFloatIcon 8s infinite alternate-reverse;
+  filter: drop-shadow(0 2px 12px #ff3b3b44);
+  opacity: 0.22;
+  background: rgba(255,255,255,0.22);
+  border-radius: 50%;
+  padding: 10px;
+  border: 1.5px solid #fff5;
+}
+/* Hero content entrance animation */
+.main-hero-heading, .main-hero-name, .main-hero-desc, .main-hero-btn {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: heroContentFadeIn 1.1s cubic-bezier(.4,2,.6,1) forwards;
+}
+.main-hero-heading { animation-delay: 0.1s; }
+.main-hero-name { animation-delay: 0.25s; }
+.main-hero-desc { animation-delay: 0.4s; }
+.main-hero-btn { animation-delay: 0.6s; }
+@keyframes heroContentFadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .main-hero-heading { font-size: 1.5rem; }
+  .main-hero-name { font-size: 1.7rem; }
+  .main-hero-img-wrapper, .main-hero-img-bg, .main-hero-dashed-svg { width: 120px !important; height: 120px !important; }
+  .main-hero-img-wrapper { min-width: 100px; min-height: 100px; }
+  .main-hero-section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .main-hero-dot { width: 16px; height: 16px; }
+  .main-hero-triangle { border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 18px solid #ff3b3b; }
+  .main-hero-circle { width: 18px; height: 18px; }
+  .main-hero-icon { font-size: 1.1rem; padding: 2px; }
+}
+.main-hero-box {
+  background: rgba(255,255,255,0.38);
+  box-shadow: 0 8px 32px 0 #ff3b3b22, 0 1.5px 8px #ff3b3b11;
+  border-radius: 2rem;
+  border: 1.5px solid #fff6;
+  backdrop-filter: blur(10px) saturate(1.2);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.main-hero-box:hover {
+  box-shadow: 0 12px 48px 0 #ff3b3b33, 0 2px 16px #ff3b3b22;
+  background: rgba(255,255,255,0.48);
+}
+.why-hire-me-title, .what-i-offer-title {
+  color: #ff3b3b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px #ff3b3b22;
+}
+.why-hire-me-desc, .what-i-offer-list {
+  color: #222;
+  font-size: 1.08rem;
+  font-weight: 400;
+  opacity: 0.92;
+}
+.why-hire-btn {
+  min-width: 140px;
+  font-weight: 600;
+  border-radius: 2rem;
+  box-shadow: 0 2px 8px #ff3b3b11;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.why-hire-btn.btn-primary {
+  background: linear-gradient(90deg, #ff3b3b 60%, #ff7b7b 100%);
+  border: none;
+}
+.why-hire-btn.btn-outline-primary {
+  border: 2px solid #ff3b3b;
+  color: #ff3b3b;
+  background: transparent;
+}
+.why-hire-btn.btn-primary:hover, .why-hire-btn.btn-primary:focus {
+  background: linear-gradient(90deg, #ff7b7b 0%, #ff3b3b 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px #ff3b3b55, 0 0 16px #ff7b7b44;
+  transform: scale(1.08);
+  border: none;
+  letter-spacing: 1.5px;
+  filter: brightness(1.08) saturate(1.2);
+}
+.why-hire-btn.btn-primary:active {
+  box-shadow: 0 2px 8px #ff3b3b22;
+}
+.why-hire-btn.btn-outline-primary:hover {
+  background: #ff3b3b;
+  color: #fff;
+  box-shadow: 0 4px 16px #ff3b3b33;
+}
+.what-i-offer-list {
+  list-style: disc inside;
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .main-hero-box {
+    padding: 1.2rem !important;
+    border-radius: 1.2rem;
+  }
+  .why-hire-me-title, .what-i-offer-title {
+    font-size: 1.2rem;
+  }
+  .why-hire-me-desc, .what-i-offer-list {
+    font-size: 0.98rem;
+  }
+}
