@@ -15,11 +15,11 @@ export default function ContactMe() {
           I'm available for freelance work. Have any projects in your mind? Just feel free to contact me.
         </p>
         <div className="contactme-socials d-flex justify-content-center align-items-center gap-4 flex-wrap mb-4">
-          <a href="#" className="contactme-social" aria-label="Facebook"><i className="ri-facebook-fill" /></a>
-          <a href="#" className="contactme-social" aria-label="Instagram"><i className="ri-instagram-line" /></a>
-          <a href="#" className="contactme-social" aria-label="Twitter"><i className="ri-twitter-x-line" /></a>
-          <a href="#" className="contactme-social" aria-label="Pinterest"><i className="ri-pinterest-line" /></a>
-          <a href="#" className="contactme-social" aria-label="YouTube"><i className="ri-youtube-fill" /></a>
+          <a href="/" className="contactme-social" aria-label="Facebook"><i className="ri-facebook-fill" /></a>
+          <a href="/" className="contactme-social" aria-label="Instagram"><i className="ri-instagram-line" /></a>
+          <a href="/" className="contactme-social" aria-label="Twitter"><i className="ri-twitter-x-line" /></a>
+          <a href="/" className="contactme-social" aria-label="Pinterest"><i className="ri-pinterest-line" /></a>
+          <a href="/" className="contactme-social" aria-label="YouTube"><i className="ri-youtube-fill" /></a>
         </div>
         <button className="contactme-btn">Contact Me</button>
       </div>

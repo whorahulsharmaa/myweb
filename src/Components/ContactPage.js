@@ -27,11 +27,11 @@ export default function ContactPage() {
             <div className="contactpage-social mt-5">
               <h4 className="contactpage-social-title mb-3">Social Info</h4>
               <div className="contactpage-social-icons">
-                <a href="#" className="contactpage-social-icon" aria-label="Facebook"><i className="ri-facebook-fill" /></a>
-                <a href="#" className="contactpage-social-icon" aria-label="Instagram"><i className="ri-instagram-line" /></a>
-                <a href="#" className="contactpage-social-icon" aria-label="Twitter"><i className="ri-twitter-x-line" /></a>
-                <a href="#" className="contactpage-social-icon" aria-label="Pinterest"><i className="ri-pinterest-line" /></a>
-                <a href="#" className="contactpage-social-icon" aria-label="YouTube"><i className="ri-youtube-fill" /></a>
+                <a href="/" className="contactpage-social-icon" aria-label="Facebook"><i className="ri-facebook-fill" /></a>
+                <a href="/" className="contactpage-social-icon" aria-label="Instagram"><i className="ri-instagram-line" /></a>
+                <a href="/" className="contactpage-social-icon" aria-label="Twitter"><i className="ri-twitter-x-line" /></a>
+                <a href="/" className="contactpage-social-icon" aria-label="Pinterest"><i className="ri-pinterest-line" /></a>
+                <a href="/" className="contactpage-social-icon" aria-label="YouTube"><i className="ri-youtube-fill" /></a>
               </div>
             </div>
           </div>

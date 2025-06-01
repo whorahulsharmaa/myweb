@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './MainHero.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatIOffer from './WhatIOffer';
 import Portfolio from './Portfolio';
-import ContactMe from './ContactMe';
+
 
 export default function Main() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
     <Navbar />
