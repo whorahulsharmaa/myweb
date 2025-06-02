@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatIOffer from './WhatIOffer';
 import Portfolio from './Portfolio';
+import { Link } from 'react-router-dom';
 
 
 export default function Main() {
@@ -62,8 +63,8 @@ export default function Main() {
                 With a proven track record of delivering robust, scalable, and visually stunning web applications, I bring a blend of technical expertise, creative problem-solving, and a passion for user-centric design. I am committed to exceeding expectations and driving results for your business.
               </p>
               <div className="d-flex gap-3 flex-wrap">
-                <a href="/cv.pdf" download className="btn btn-primary why-hire-btn">Download My CV</a>
-                <a href="#contact" className="btn btn-outline-primary why-hire-btn">Hire Me</a>
+                <a href="/images/RESUME_RAHUL.pdf" download className="btn btn-primary why-hire-btn">Download My CV</a>
+                <Link to="/contactpage" className="btn btn-outline-primary why-hire-btn">Hire Me</Link>
               </div>
             </div>
           </div>

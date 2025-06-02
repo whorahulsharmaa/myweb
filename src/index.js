@@ -10,6 +10,9 @@ import Blog from "./Components/Blog";
 import ContactPage from "./Components/ContactPage";
 import ProjectsSection from "./Components/ProjectsSection";
 import SkillsSection from "./Components/SkillsSection";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import LogoutButton from "./Components/Logout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,6 +26,9 @@ root.render(
         <Route path="/projects" element={<ProjectsSection />} />
         <Route path="/skills" element={<SkillsSection />} />
         <Route path="/contactpage" element={<ContactPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<LogoutButton />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

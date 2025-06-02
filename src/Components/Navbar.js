@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConfig";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import "./Navbar.css";
 
-function ResumePopup({ show, onClose }) {
+function ResumePopup({ show, onClose, title, desc, gif }) {
   if (!show) return null;
   return (
     <div className="resume-popup-overlay">
@@ -11,15 +13,17 @@ function ResumePopup({ show, onClose }) {
           &times;
         </button>
         <img
-          src="/images/download-anim.gif"
-          alt="Download Complete"
+          src={gif || "/images/download-anim.gif"}
+          alt={title || "Download Complete"}
           className="resume-popup-gif"
         />
-        <h4 className="resume-popup-title">Download Complete!</h4>
+        <h4 className="resume-popup-title">{title || "Download Complete!"}</h4>
         <p className="resume-popup-desc">
-          Check your Downloads folder for Resume.
-          <br />
-          Thank you for your interest!
+          {desc || (
+            <>
+              Check your Downloads folder for Resume.<br />Thank you for your interest!
+            </>
+          )}
         </p>
       </div>
     </div>
@@ -28,6 +32,38 @@ function ResumePopup({ show, onClose }) {
 
 export default function Navbar() {
   const [showPopup, setShowPopup] = useState(false);
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (!currentUser) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [currentUser]);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setShowLogoutPopup(true);
+      setTimeout(() => setShowLogoutPopup(false), 4000);
+      navigate("/");
+    } catch (error) {
+      // Optionally show error
+    }
+  };
 
   const handleResumeClick = (e) => {
     // Start download
@@ -72,7 +108,8 @@ export default function Navbar() {
                 margin: 0,
                 fontSize: "1.7rem",
                 fontWeight: 700,
-                color: "#232526",
+                color: "#FFFAFA",
+                // color: "#232526",
               }}
             >
               Rahul Sharma
@@ -97,51 +134,91 @@ export default function Navbar() {
               className="navbar-nav d-flex justify-content-center align-items-center"
               style={{ margin: 0, gap: "2.5rem" }}
             >
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  style={{ color: "#232526" }}
-                  aria-current="page"
-                  to="/"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" style={{ color: "#232526" }} to="/blog">
-                  Blog
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" style={{ color: "#232526" }} to="/skills">
-                  Skills
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" style={{ color: "#232526" }} to="/projects">
-                  Projects
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" style={{ color: "#232526" }} to="/contactpage">
-                  Contact
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  style={{ color: "#232526" }}
-                  href="/images/RESUME_RAHUL.pdf"
-                  onClick={handleResumeClick}
-                >
-                  Resume
-                </a>
-              </li>
+              {currentUser ? (
+                <>
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link active"
+                      style={{ color: "#232526" }}
+                      aria-current="page"
+                      to="/"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" style={{ color: "#232526" }} to="/blog">
+                      Blog
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" style={{ color: "#232526" }} to="/skills">
+                      Skills
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" style={{ color: "#232526" }} to="/projects">
+                      Projects
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" style={{ color: "#232526" }} to="/contactpage">
+                      Contact
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      className="nav-link"
+                      style={{ color: "#232526" }}
+                      href="/images/RESUME_RAHUL.pdf"
+                      onClick={handleResumeClick}
+                    >
+                      Resume
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <button
+                      onClick={handleLogout}
+                      className="nav-link navbar-logout-btn"
+                      style={{
+                        color: "#FFFAFA",
+                        fontWeight: 400,
+                        background: "none",
+                        border: "none",
+                        padding: 0,
+                        cursor: "pointer",
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" style={{ color: "#FFFAFA" }} to="/login">
+                      Login
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" style={{ color: "#FFFAFA" }} to="/register">
+                      Sign Up
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
       </nav>
       <ResumePopup show={showPopup} onClose={() => setShowPopup(false)} />
+      <ResumePopup
+        show={showLogoutPopup}
+        onClose={() => setShowLogoutPopup(false)}
+        title="Logged Out!"
+        desc="You have been logged out successfully. See you soon!"
+        gif="/images/logout.gif"
+      />
     </>
   );
 }
